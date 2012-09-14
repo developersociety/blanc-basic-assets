@@ -9,7 +9,6 @@ def asset_file_change(sender, **kwargs):
     # Must be saved already
     if instance.pk is not None:
         try:
-            print sender
             old_obj = sender.objects.get(pk=instance.pk)
 
             # Delete the old file if the file names don't match
