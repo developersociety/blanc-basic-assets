@@ -8,6 +8,9 @@ class Image(models.Model):
     image_height = models.PositiveIntegerField(editable=False)
     image_width = models.PositiveIntegerField(editable=False)
 
+    class Meta:
+        ordering = ('title',)
+
     def __unicode__(self):
         return self.title
 
@@ -18,6 +21,9 @@ class Image(models.Model):
 class File(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     file = models.FileField(upload_to='assets/file')
+
+    class Meta:
+        ordering = ('title',)
 
     def __unicode__(self):
         return self.title
