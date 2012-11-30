@@ -20,6 +20,8 @@ setup(
     ],
     package_data={'blanc_basic_assets': [
         'assets/templates/admin/assets/*.html',
+        'assets/templates/admin/assets/file/*.html',
+        'assets/templates/admin/assets/image/*.html',
     ]},
     classifiers=[
         'Environment :: Web Environment',
