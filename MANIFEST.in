@@ -1,1 +1,2 @@
 include README.rst
+include blanc_basic_assets/assets/templates/admin/assets/*.html

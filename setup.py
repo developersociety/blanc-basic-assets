@@ -18,6 +18,9 @@ setup(
         'blanc_basic_assets',
         'blanc_basic_assets.assets',
     ],
+    package_data={'blanc_basic_assets': [
+        'assets/templates/admin/assets/*.html',
+    ]},
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
