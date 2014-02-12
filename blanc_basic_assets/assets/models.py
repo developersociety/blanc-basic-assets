@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ImageCategory(models.Model):
-    title = models.CharField(max_length=100, db_index=True)
+    title = models.CharField(max_length=100, unique=True)
 
     class Meta:
         ordering = ('title',)
@@ -31,7 +31,7 @@ class Image(models.Model):
 
 
 class FileCategory(models.Model):
-    title = models.CharField(max_length=100, db_index=True)
+    title = models.CharField(max_length=100, unique=True)
 
     class Meta:
         ordering = ('title',)
