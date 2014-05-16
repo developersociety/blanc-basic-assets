@@ -1,11 +1,8 @@
 from django.db.models.signals import pre_save, post_delete
 from django.core.files.storage import default_storage
-from .models import Image, File
 
 
-def asset_file_change(sender, **kwargs):
-    instance = kwargs['instance']
-
+def asset_file_change(sender, instance, **kwargs):
     # Must be saved already
     if instance.pk is not None:
         try:
@@ -18,9 +15,7 @@ def asset_file_change(sender, **kwargs):
             pass
 
 
-def asset_file_delete(sender, **kwargs):
-    instance = kwargs['instance']
-
+def asset_file_delete(sender, instance, **kwargs):
     # Try and remove the file if possible
     try:
         instance.file.delete(save=False)
@@ -28,7 +23,7 @@ def asset_file_delete(sender, **kwargs):
         pass
 
 
-pre_save.connect(asset_file_change, sender=Image)
-pre_save.connect(asset_file_change, sender=File)
-post_delete.connect(asset_file_delete, sender=Image)
-post_delete.connect(asset_file_delete, sender=File)
+pre_save.connect(asset_file_change, sender='assets.Image')
+pre_save.connect(asset_file_change, sender='assets.File')
+post_delete.connect(asset_file_delete, sender='assets.Image')
+post_delete.connect(asset_file_delete, sender='assets.File')
