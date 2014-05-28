@@ -2,17 +2,15 @@
 Installation
 ============
 
+
 Requirements
 ============
 
-Before installing blanc-basic-assets, you'll need a copy of Django__ 1.3 or
-later installed. Image uploads require the `Python Imaging Library`__
-installed.
+Before installing blanc-basic-assets, you'll need a copy of Django__ 1.7 or
+later installed. Image uploads require the `Pillow`__ library installed.
 
 .. __: http://www.djangoproject.com/
-.. __: http://www.pythonware.com/products/pil/
-
-The Django sites framework is also required to be installed.
+.. __: http://python-imaging.github.io/
 
 
 Installing blanc-basic-assets
@@ -43,14 +41,11 @@ script::
 Configuring your project
 ========================
 
-Edit your Django project's settings module, ensure that
-``django.contrib.sites`` is already added to ``INSTALLED_APPS``, and add
-``blanc_basic_assets.assets``::
+Edit your Django project's settings module, and add ``blanc_basic_assets``::
 
     INSTALLED_APPS = (
-        'django.contrib.sites',
         ...
-        'blanc_basic_assets.assets',
+        'blanc_basic_assets',
     )
 
-Once this is done, run ``python manage.py syncdb`` to update your database.
+Once this is done, run ``python manage.py migrate`` to update your database.
