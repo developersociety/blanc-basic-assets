@@ -1,26 +1,20 @@
-from django.db.models.signals import pre_save, post_delete
-from django.core.files.storage import default_storage
+from django.db.models.signals import post_delete, pre_save
 
 
 def asset_file_change(sender, instance, **kwargs):
     # Must be saved already
     if instance.pk is not None:
-        try:
-            old_obj = sender.objects.get(pk=instance.pk)
+        old_obj = sender.objects.get(pk=instance.pk)
 
-            # Delete the old file if the file names don't match
-            if old_obj.file.path != instance.file.path:
-                default_storage.delete(old_obj.file.path)
-        except:
-            pass
+        # Delete the old file if the file names don't match
+        if old_obj.file.name != instance.file.name:
+            storage = old_obj.file.storage
+            storage.delete(name=old_obj.file.name)
 
 
-def asset_file_delete(sender, instance, **kwargs):
-    # Try and remove the file if possible
-    try:
-        instance.file.delete(save=False)
-    except:
-        pass
+def asset_file_delete(instance, **kwargs):
+    # Remove the file along with it
+    instance.file.delete(save=False)
 
 
 pre_save.connect(asset_file_change, sender='assets.Image')
