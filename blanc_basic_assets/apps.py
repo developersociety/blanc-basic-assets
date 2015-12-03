@@ -7,4 +7,4 @@ class BlancBasicAssetsConfig(AppConfig):
 
     def ready(self):
         super(BlancBasicAssetsConfig, self).ready()
-        from . import listeners
+        from . import listeners  # noqa
