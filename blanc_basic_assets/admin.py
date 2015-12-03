@@ -1,6 +1,8 @@
-from django.contrib import admin
-from .models import ImageCategory, Image, FileCategory, File
 from os.path import basename
+
+from django.contrib import admin
+
+from .models import File, FileCategory, Image, ImageCategory
 
 
 @admin.register(ImageCategory, FileCategory)

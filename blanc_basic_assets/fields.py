@@ -1,6 +1,7 @@
+from itertools import groupby
+
 from django.db import models
 from django.forms.models import ModelChoiceField, ModelChoiceIterator
-from itertools import groupby
 
 
 class GroupedModelChoiceField(ModelChoiceField):

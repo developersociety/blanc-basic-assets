@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
+
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
@@ -19,8 +20,8 @@ class ImageCategory(models.Model):
 class Image(models.Model):
     category = models.ForeignKey(ImageCategory)
     title = models.CharField(max_length=100, db_index=True)
-    file = models.ImageField('Image', upload_to='assets/image',
-                             height_field='image_height', width_field='image_width')
+    file = models.ImageField(
+        'Image', upload_to='assets/image', height_field='image_height', width_field='image_width')
     image_height = models.PositiveIntegerField(editable=False)
     image_width = models.PositiveIntegerField(editable=False)
 
