@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='blanc-basic-assets',
-    version='0.3.1',
+    version='0.3.2',
     description='Blanc Basic Assets for Django',
     long_description=open('README.rst').read(),
     url='https://github.com/blancltd/blanc-basic-assets',
