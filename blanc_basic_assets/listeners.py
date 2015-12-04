@@ -1,7 +1,11 @@
 from django.db.models.signals import post_delete, pre_save
 
 
-def asset_file_change(sender, instance, **kwargs):
+def asset_file_change(sender, instance, raw, **kwargs):
+    # Don't update when loading a fixutre
+    if raw:
+        return
+
     # Must be saved already
     if instance.pk is not None:
         old_obj = sender.objects.get(pk=instance.pk)
