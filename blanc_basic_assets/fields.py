@@ -35,9 +35,16 @@ class GroupedModelChoiceIterator(ModelChoiceIterator):
         if self.field.empty_label is not None:
             yield ('', self.field.empty_label)
 
-        for group, choices in groupby(self.queryset.all(),
-                                      key=lambda row: getattr(row, self.field.group_by_field)):
-            yield (self.field.group_label(group), [self.choice(ch) for ch in choices])
+        queryset = self.queryset.all()
+        # Can't use iterator() when queryset uses prefetch_related()
+        if not queryset._prefetch_related_lookups:
+            queryset = queryset.iterator()
+
+        grouped_queryset = groupby(
+            queryset, key=lambda row: getattr(row, self.field.group_by_field)
+        )
+        for group, choices in grouped_queryset:
+            yield (self.field.group_label(group), [self.choice(obj) for obj in choices])
 
 
 class AssetForeignKey(models.ForeignKey):
