@@ -59,11 +59,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='image',
             name='category',
-            field=models.ForeignKey(to='assets.ImageCategory'),
+            field=models.ForeignKey(to='assets.ImageCategory', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='file',
             name='category',
-            field=models.ForeignKey(to='assets.FileCategory'),
+            field=models.ForeignKey(to='assets.FileCategory', on_delete=models.CASCADE),
         ),
     ]
