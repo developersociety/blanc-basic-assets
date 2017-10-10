@@ -18,7 +18,7 @@ class ImageCategory(models.Model):
 
 @python_2_unicode_compatible
 class Image(models.Model):
-    category = models.ForeignKey(ImageCategory)
+    category = models.ForeignKey(ImageCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, db_index=True)
     file = models.ImageField(
         'Image', upload_to='assets/image', height_field='image_height', width_field='image_width')
@@ -49,7 +49,7 @@ class FileCategory(models.Model):
 
 @python_2_unicode_compatible
 class File(models.Model):
-    category = models.ForeignKey(FileCategory)
+    category = models.ForeignKey(FileCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, db_index=True)
     file = models.FileField(upload_to='assets/file')
 

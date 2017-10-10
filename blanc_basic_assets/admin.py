@@ -1,6 +1,7 @@
 from os.path import basename
 
 from django.contrib import admin
+from django.utils.html import format_html
 
 from .models import File, FileCategory, Image, ImageCategory
 
@@ -17,6 +18,7 @@ class FileAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
     def file_link(self, obj):
-        return '<a href="%s">%s</a>' % (obj.get_absolute_url(), basename(obj.file.name))
+        return format_html(
+            '<a href="{url}">{name}</a>', url=obj.get_absolute_url(), name=basename(obj.file.name)
+        )
     file_link.short_description = 'Link'
-    file_link.allow_tags = True
