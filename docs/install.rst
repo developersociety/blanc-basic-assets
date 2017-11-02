@@ -6,7 +6,7 @@ Installation
 Requirements
 ============
 
-Before installing blanc-basic-assets, you'll need a copy of Django__ 1.7 or
+Before installing blanc-basic-assets, you'll need a copy of Django__ 1.8 or
 later installed. Image uploads require the `Pillow`__ library installed.
 
 .. __: http://www.djangoproject.com/
