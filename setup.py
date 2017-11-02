@@ -6,9 +6,9 @@ setup(
     version='0.3.2',
     description='Blanc Basic Assets for Django',
     long_description=open('README.rst').read(),
-    url='https://github.com/blancltd/blanc-basic-assets',
-    maintainer='Blanc Ltd',
-    maintainer_email='studio@blanc.ltd.uk',
+    url='https://github.com/developersociety/blanc-basic-assets',
+    maintainer='Developer Society',
+    maintainer_email='studio@dev.ngo',
     platforms=['any'],
     packages=find_packages(exclude=['tests']),
     classifiers=[

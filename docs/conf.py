@@ -9,7 +9,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Blanc Basic Assets'
-copyright = u'2014, Blanc Ltd'
+copyright = u'2014, Developer Society Ltd'
 
 # The short X.Y version.
 version = '0.3'
@@ -30,20 +30,20 @@ htmlhelp_basename = 'blanc-basic-assetsdoc'
 
 latex_documents = [
     ('index', 'blanc-basic-assets.tex', 'Blanc Basic Assets Documentation',
-     'Blanc Ltd', 'manual'),
+     'Developer Society Ltd', 'manual'),
 ]
 
 # -- Options for manual page output --------------------------------------------
 
 man_pages = [
     ('index', 'blanc-basic-assets', 'Blanc Basic Assets Documentation',
-     ['Blanc Ltd'], 1)
+     ['Developer Society Ltd'], 1)
 ]
 
 # -- Options for Texinfo output ------------------------------------------------
 
 texinfo_documents = [
     ('index', 'blanc-basic-assets', 'Blanc Basic Assets Documentation',
-     'Blanc Ltd', 'blanc-basic-assets', 'One line description of project.',
+     'Developer Society Ltd', 'blanc-basic-assets', 'One line description of project.',
      'Miscellaneous'),
 ]
