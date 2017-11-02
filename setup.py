@@ -1,11 +1,17 @@
 #!/usr/bin/env python
+from codecs import open
+
 from setuptools import find_packages, setup
+
+with open('README.rst', 'r', 'utf-8') as f:
+    readme = f.read()
+
 
 setup(
     name='blanc-basic-assets',
     version='0.3.2',
     description='Blanc Basic Assets for Django',
-    long_description=open('README.rst').read(),
+    long_description=readme,
     url='https://github.com/developersociety/blanc-basic-assets',
     maintainer='Developer Society',
     maintainer_email='studio@dev.ngo',
