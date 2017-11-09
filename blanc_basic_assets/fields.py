@@ -1,7 +1,7 @@
 from itertools import groupby
 
 from django.db import models
-from django.forms.models import ModelChoiceField, ModelChoiceIterator
+from django.forms.models import ModelChoiceField
 from django.utils.encoding import force_text
 
 
@@ -31,7 +31,11 @@ class GroupedModelChoiceField(ModelChoiceField):
     choices = property(_get_choices, ModelChoiceField._set_choices)
 
 
-class GroupedModelChoiceIterator(ModelChoiceIterator):
+class GroupedModelChoiceIterator(object):
+    def __init__(self, field):
+        self.field = field
+        self.queryset = field.queryset
+
     def __iter__(self):
         if self.field.empty_label is not None:
             yield ('', self.field.empty_label)
@@ -46,6 +50,9 @@ class GroupedModelChoiceIterator(ModelChoiceIterator):
         )
         for group, choices in grouped_queryset:
             yield (self.field.group_label(group), [self.choice(obj) for obj in choices])
+
+    def choice(self, obj):
+        return (self.field.prepare_value(obj), self.field.label_from_instance(obj))
 
 
 class AssetForeignKey(models.ForeignKey):
