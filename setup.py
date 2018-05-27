@@ -13,7 +13,7 @@ setup(
     description='Blanc Basic Assets for Django',
     long_description=readme,
     url='https://github.com/developersociety/blanc-basic-assets',
-    maintainer='Developer Society',
+    maintainer='The Developer Society',
     maintainer_email='studio@dev.ngo',
     platforms=['any'],
     packages=find_packages(exclude=['tests']),
