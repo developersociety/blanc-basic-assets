@@ -10,9 +10,9 @@ setup(
     version=version,
     description='Blanc Basic Assets for Django',
     long_description=open('README.rst').read(),
-    url='http://www.blanctools.com/',
-    maintainer='Alex Tomkins',
-    maintainer_email='alex@hawkz.com',
+    url='https://github.com/developersociety/blanc-basic-assets',
+    maintainer='The Developer Society',
+    maintainer_email='studio@dev.ngo',
     platforms=['any'],
     packages=[
         'blanc_basic_assets',
