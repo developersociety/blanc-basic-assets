@@ -30,5 +30,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    license='BSD-2',
+    license='BSD',
 )
